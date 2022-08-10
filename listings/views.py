@@ -6,6 +6,7 @@ from .models import Listing
 
 
 def index(request):
+   
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
 
     paginator = Paginator(listings, 6)
@@ -31,6 +32,7 @@ def listing(request, listing_id):
 
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
+   
 
     # KEYWORDS
     if 'keywords' in request.GET:
@@ -45,10 +47,10 @@ def search(request):
             queryset_list = queryset_list.filter(city__iexact=city)
 
     # STATE
-    if 'state' in request.GET:
-        state = request.GET['state']
-        if state:
-            queryset_list = queryset_list.filter(state__iexact=state)
+    # if 'state' in request.GET:
+    #     state = request.GET['state']
+    #     if state:
+    #         queryset_list = queryset_list.filter(state__iexact=state)
 
     # BEDROOMS
     if 'bedrooms' in request.GET:
@@ -63,7 +65,7 @@ def search(request):
             queryset_list = queryset_list.filter(price__lte=price)
 
     context = {
-        'state_choices': state_choices,
+        # 'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
         'listings': queryset_list,
@@ -71,3 +73,40 @@ def search(request):
     }
 
     return render(request, 'listings/search.html', context)
+
+def dropdown_menu_form(request):
+    if request.method == "POST":
+        selected_value = request.POST.get('dropdown_menu_option')
+        print(selected_value)
+  #do something
+    else :
+        template = 'app_name/dropdown_menu_form.html'
+    return render(request, template)
+
+def readyToMoveIn(request):
+       
+    listings = Listing.objects.order_by('-list_date').filter(property_status="READY")
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'listings': paged_listings
+    }
+
+    return render(request, 'listings/listings.html', context)
+
+
+def mortgage(request):
+       
+    listings = Listing.objects.order_by('-list_date').filter(property_status="MORTGAGE")
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'listings': paged_listings
+    }
+
+    return render(request, 'listings/listings.html', context)

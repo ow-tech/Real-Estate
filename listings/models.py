@@ -25,6 +25,15 @@ class Listing(models.Model):
     photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     is_published = models.BooleanField(default=True)
+    PROPERTY_STAGES = [
+        ("READY", "Ready to Move In"),
+    ("MORTGAGE", "Mortgage Plan / OffPlan")
+        
+    ]
+
+    property_status = models.CharField(max_length=9,
+                  choices=PROPERTY_STAGES,
+                  default="READY")
     list_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
