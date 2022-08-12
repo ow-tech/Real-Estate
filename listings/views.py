@@ -110,3 +110,51 @@ def mortgage(request):
     }
 
     return render(request, 'listings/listings.html', context)
+
+
+def handOver(request):
+       
+    listings = Listing.objects.order_by('-list_date').filter(is_handOver_in_12_months=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'listings': paged_listings
+    }
+
+    return render(request, 'listings/listings.html', context)
+
+def villasMansions(request):
+       
+    listings = Listing.objects.order_by('-list_date').filter(is_villas_and_mansionettes=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+   
+
+    context = {
+        'listings': paged_listings,
+       
+    }
+
+    return render(request, 'listings/listings.html', context)
+
+def hottestInTown(request):
+       
+    listings = Listing.objects.order_by('-list_date').filter(is_hot=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+    
+    
+
+    context = {
+        'listings': paged_listings,
+         "has_drop_down": True
+    }
+
+    return render(request, 'listings/listings.html', context)

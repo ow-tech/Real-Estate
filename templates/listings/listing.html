@@ -98,6 +98,11 @@
                       <span class="float-right">AED {{ listing.price | intcomma}}</span>
                     </li>
                     <li class="list-group-item text-secondary">
+                      <i class="fas fa-bookmark"></i>Ready or Payment Plans:
+                      <span class="float-right">{{ listing.property_status }}</span>
+                      </span>
+                    </li>
+                    <li class="list-group-item text-secondary">
                       <i class="fas fa-bed"></i> Bedrooms:
                       <span class="float-right">{{ listing.bedrooms }}</span>
                     </li>
@@ -114,6 +119,18 @@
                 </div>
                 <div class="col-md-6">
                   <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-secondary">
+                      {% if listing.is_handOver_in_12_months  %}
+                      <i class="fas fa-handshake"></i> Hand Over in 12 Months:
+                      <span class="float-right">Yes
+                      </span>
+                      {% else %}
+                      <i class="fas fa-handshake"></i> Hand Over in 12 Months:
+                      <span class="float-right">No
+                      </span>
+                      {% endif %}
+                      
+                    </li>
                     <li class="list-group-item text-secondary">
                       <i class="fas fa-th-large"></i> Square Feet:
                       <span class="float-right">{{ listing.sqft }}</span>

@@ -4,33 +4,10 @@
 {% block content %}
 <div class="container text-center dropdown  my-4 choosing">
     <!-- type of housing -->
-    
-
-    <!-- areas to choose from -->
-    <!-- <div class="btn-group">
-    <button class="btn btn-lg btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-        Hot Areas
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Sharjah</a>
-        <a class="dropdown-item" href="#">Dubai</a>
-      </div>
-    </div> -->
-    
-    <!-- <form action= id="dropdown_menu_form">
-        <select name="dropdown_menu_option" form="dropdown_menu_form">
-          <option value="Att1">Att1</option>
-          <option value="Att2">Att2</option>
-          <option value="Att3">Ope3</option>
-        </select>
-        </form> -->
-
-
-
         <!-- bigger card -->
         
         <div class="card mainCard">
-            <h5 class="card-header">Hot Projects</h5>
+            <h5 class="card-header">Yes. You Can buy/own building in Dubai. Just in few clicks</h5>
             <div class="card-body">
                 
                 <!-- inner cards -->
@@ -53,13 +30,58 @@
                       <div class="card customCard">
                         <div class="card-body">
                           <h5 class="card-title">Mortgage Plans</h5>
+                          <p class="card-text">Offplan, under construction and launched properties and projects in Dubai. Available for sale</p>
+                          
+                        </div>
+                      </div>
+                        </a>
+                    </div>
+                    
+                  </div>
+
+                  <!-- second row -->
+
+                  <div class="row my-3">
+                   
+                    <div class="col-sm-6">
+                        <a href="{% url 'handOver' %}" >
+                      <div class="card customCard">
+                        <div class="card-body">
+                          <h5 class="card-title">HandOver in 12 Months</h5>
+                          <p class="card-text">Studio, flats, apartments, villas, Townhouses in Dubai and whole of UAE. Ready for sale and renting</p>
+                          </div>
+                      </div>
+                        </a>
+                    </div>
+                    
+                    
+                    <div class="col-sm-6">
+                        <a href="{% url 'hottestInTown' %}">
+                      <div class="card customCard">
+                        <div class="card-body">
+                          <h5 class="card-title">Hottest In Town</h5>
                           <p class="card-text">Ofplan, under construction and launched properties and projects in Dubai. Available for sale</p>
                           
                         </div>
                       </div>
                         </a>
                     </div>
-                    </a>
+                    
+                  </div>
+
+                  <div class="row my-3 justify-content-center align-items-center">
+                    <div class="col-sm-6 ">
+                      <a href="{% url 'villasMansions' %}">
+                    <div class="card customCard">
+                      <div class="card-body">
+                        <h5 class="card-title">Villas and Mansions</h5>
+                        <p class="card-text">Ofplan, under construction and launched properties and projects in Dubai. Available for sale</p>
+                        
+                      </div>
+                    </div>
+                      </a>
+                  </div>
+
                   </div>
 
 
@@ -68,30 +90,7 @@
 
           <!-- areas selection -->
 
-          <div class="card ">
-            <div class="card-body">
-              <!-- <h5 class="card-title">Mortgage Plans</h5>
-              <p class="card-text">Ofplan, under construction and launched properties and projects in Dubai. Available for sale</p> -->
-              <div class="btn-group">
-                <button class="btn btn-lg btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                  Hot Properties
-                </button>
-                <div class="dropdown-menu scrollbar-y">
-                    <form method="POST">
-                        <button type="submit" class="btn position-absolute " name="option1" >POST ACTION 1</button>
-                    <button type="submit" class="btn" name="option2" >POST ACTION 2</button>
-                    <button type="submit" class="btn" name="option3" >POST ACTION 3</button>
-                    <button type="submit" class="btn" name="option4" >POST ACTION 4</button>
-                    <button type="submit" class="btn" name="option3" >POST ACTION 3</button>
-                    <button type="submit" class="btn" name="option4" >POST ACTION 4</button>
-
-                    </form>
-                  
-                </div>
-                </div>
-              
-            </div>
-          </div>
+          
           
   </div>
   {% endblock %}

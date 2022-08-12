@@ -8,8 +8,8 @@ class Listing(models.Model):
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    zipcode = models.CharField(max_length=20)
+    # state = models.CharField(max_length=100)
+    # zipcode = models.CharField(max_length=20)
     description = models.TextField(blank=True)
     price = models.IntegerField()
     bedrooms = models.IntegerField()
@@ -34,6 +34,9 @@ class Listing(models.Model):
     property_status = models.CharField(max_length=9,
                   choices=PROPERTY_STAGES,
                   default="READY")
+    is_handOver_in_12_months = models.BooleanField(default=False)
+    is_hot = models.BooleanField(default=False)
+    is_villas_and_mansionettes = models.BooleanField(default=False)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
