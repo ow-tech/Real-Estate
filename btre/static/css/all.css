@@ -933,7 +933,9 @@ readers do not read off random characters that represent icons */
 
 .fa-connectdevelop:before {
   content: "\f20e"; }
-
+.fa-construction:before{
+  content:"\f85d";
+}
 .fa-contao:before {
   content: "\f26d"; }
 
@@ -2316,6 +2318,10 @@ readers do not read off random characters that represent icons */
 
 .fa-mortar-pestle:before {
   content: "\f5a7"; }
+
+.fa-person-digging:before{
+  content:"\f85e";
+}
 
 .fa-mosque:before {
   content: "\f678"; }

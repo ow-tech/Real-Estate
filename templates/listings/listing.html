@@ -5,13 +5,12 @@
 {% block title %} | {{ listing.title }}{% endblock %}
 
 {% block content %}
-<section id="" class="py-5 text-white" style="background-color:darkblue;">
+<section id="" class="py-5 text-white" style="background-color:#a08766">
         <div class="container">
           <div class="row text-center">
-            <div class="col-md-12">
+            <div class="col-md-12" >
               <h1 class="display-4">{{ listing.title }}</h1>
-              <p class="lead">
-                <i class="fas fa-map-marker"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+              
             </div>
           </div>
         </div>
@@ -44,7 +43,7 @@
           <div class="row">
             <div class="col-md-9">
               <!-- Home Main Image -->
-              <img src="{{ listing.photo_main.url }}" alt="" class="img-main img-fluid mb-3">
+              <img src="{{ listing.photo_main.url }}" alt="{{listing.description}}" class="img-main img-fluid mb-3">
               <!-- Thumbnails -->
               <div class="row mb-5 thumbs">
                 {% if listing.photo_1 %}
@@ -88,6 +87,52 @@
                   </a>
                 </div>
                 {% endif %}
+
+                {% if listing.photo_6 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_6.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
+
+                {% if listing.photo_7 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_7.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_7.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
+                {% if listing.photo_8 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_8.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_8.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
+                {% if listing.photo_9 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_9.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_9.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
+                {% if listing.photo_10 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_10.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_10.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
+
+                {% if listing.photo_11 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_11.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_11.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
+
+                {% if listing.photo_12 %}
+                <div class="col-md-2">
+                  <a href="{{ listing.photo_12.url }}" data-lightbox="home-images">
+                    <img src="{{ listing.photo_12.url }}" alt="" class="img-fluid">
+                  </a>
+                </div>{% endif %}
               </div>
               <!-- Fields -->
               <div class="row mb-5 fields">
@@ -95,7 +140,7 @@
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item text-secondary">
                       <i class="fas fa-money-bill-alt"></i> Asking Price:
-                      <span class="float-right">AED {{ listing.price | intcomma}}</span>
+                      <span class="float-right">AED {{ listing.price | intcomma}} / ft<sup>2</sup> </span>
                     </li>
                     <li class="list-group-item text-secondary">
                       <i class="fas fa-bookmark"></i>Ready or Payment Plans:
@@ -103,18 +148,18 @@
                       </span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Bedrooms:
-                      <span class="float-right">{{ listing.bedrooms }}</span>
+                      <i class="fas fa-toolbox"></i> Developer:</i>
+                      <span class="float-right">{{ listing.developer }}</span>
                     </li>
-                    <li class="list-group-item text-secondary">
+                    <!-- <li class="list-group-item text-secondary">
                       <i class="fas fa-bath"></i> Bathrooms:
                       <span class="float-right">{{ listing.bathrooms }}</span>
-                    </li>
-                    <li class="list-group-item text-secondary">
+                    </li> -->
+                    <!-- <li class="list-group-item text-secondary">
                       <i class="fas fa-car"></i> Garage:
                       <span class="float-right">{{ listing.garage }}
                       </span>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
                 <div class="col-md-6">
@@ -131,22 +176,22 @@
                       {% endif %}
                       
                     </li>
-                    <li class="list-group-item text-secondary">
+                    <!-- <li class="list-group-item text-secondary">
                       <i class="fas fa-th-large"></i> Square Feet:
                       <span class="float-right">{{ listing.sqft }}</span>
-                    </li>
-                    <li class="list-group-item text-secondary">
+                    </li> -->
+                    <!-- <li class="list-group-item text-secondary">
                       <i class="fas fa-square"></i> Lot Size:
                       <span class="float-right">{{ listing.lot_size }}
                       </span>
-                    </li>
+                    </li> -->
                     <li class="list-group-item text-secondary">
                       <i class="fas fa-calendar"></i> Listing Date:
                       <span class="float-right">{{ listing.list_date }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Realtor:
-                      <span class="float-right">{{ listing.realtor }}
+                      <i class="fas fa-map-marker-alt"></i> Location:
+                      <span class="float-right">{{ listing.area }}
                       </span>
                     </li>
     
@@ -173,6 +218,269 @@
               <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
             </div>
           </div>
+
+          <!-- floor plan row -->
+
+          <!-- floor plan -->
+     
+      <table class="table table-hover">
+        {% for fp in floor_plan %}
+        <tr >
+            
+          <!-- <td>Floor Plan 1 Image</td> -->
+          <div class="row">
+            <td class="col-md-2">
+              <a href="{{ fp.floor_plan_image.url }}" data-lightbox="{{fp.floor_plan_image.url}}">
+              <img src="{{ fp.floor_plan_image.url}}">
+              </a>
+
+            </td>
+          </div>
+          {% if fp.is_studio %}
+          <td>Studio floor Plan</td>
+          {% else %}
+          <td>{{fp.bedrooms}} BR floor Plan</td>
+          {% endif %}
+          <td>From {{ fp.from_sqft }} / ft<sup>2</sup></td>
+          <td>From AED {{ fp.price_sqft }} / ft<sup>2</sup></td>
+          <td>From AED {{ fp.min_price }} </td>
+          
+        </a>
+        </tr>
+
+
+        {% endfor %}
+        
+          {% if listing.studio %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.studio.url }}" data-lightbox="{{listing.studio.url}}">
+                <img src="{{ listing.studio.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>Studio floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+          {% if listing.BR_1 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_1.url }}" data-lightbox="{{listing.BR_1.url}}">
+                <img src="{{ listing.BR_1.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>1 Bed Room floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_2 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_2.url }}" data-lightbox="{{listing.BR_2.url}}">
+                <img src="{{ listing.BR_2.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>2 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_3 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_3.url }}" data-lightbox="{{listing.BR_3.url}}">
+                <img src="{{ listing.BR_3.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>3 Bed Room floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_4 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_4.url }}" data-lightbox="{{listing.BR_4.url}}">
+                <img src="{{ listing.BR_4.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>4 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_5 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_5.url }}" data-lightbox="{{listing.BR_5.url}}">
+                <img src="{{ listing.BR_5.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>5 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_6 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_6.url }}" data-lightbox="{{listing.BR_6.url}}">
+                <img src="{{ listing.BR_6.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>6 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_7 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_7.url }}" data-lightbox="{{listing.BR_7.url}}">
+                <img src="{{ listing.BR_7.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>7 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_8 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_8.url }}" data-lightbox="{{listing.BR_8.url}}">
+                <img src="{{ listing.BR_8.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>8 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+
+          {% if listing.BR_9 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_9.url }}" data-lightbox="{{listing.BR_9.url}}">
+                <img src="{{ listing.BR_9.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>9 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+          {% if listing.BR_10 %}
+          
+          <tr >
+            
+            <!-- <td>Floor Plan 1 Image</td> -->
+            <div class="row">
+              <td class="col-md-2">
+                <a href="{{ listing.BR_10.url }}" data-lightbox="{{listing.BR_10.url}}">
+                <img src="{{ listing.BR_10.url }}">
+                </a>
+
+              </td>
+            </div>
+            
+            <td>10 Bed Rooms floor Plan</td>
+            <td>Price Start At</td>
+          </a>
+          </tr>
+        
+          {% endif %}
+        </tbody>
+      </table>
         </div>
       </section>
     
@@ -223,6 +531,8 @@
           </div>
         </div>
       </div>
+
+      
     
 
 {% endblock %}

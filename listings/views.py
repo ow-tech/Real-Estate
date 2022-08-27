@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .choices import price_choices, bedroom_choices, state_choices 
+from .choices import area_choices, developer_choices
 
-from .models import Listing
+from .models import Listing, Floor_Plan
 
 
 def index(request):
@@ -22,9 +22,13 @@ def index(request):
 
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
-
+    floor_plan =Floor_Plan.objects.filter(listing=listing_id)
+    # for b in floor_plan:
+    #     print(b.listing)
+   
     context = {
-        'listing': listing
+        'listing': listing,
+        'floor_plan': floor_plan
     }
 
     return render(request, 'listings/listing.html', context)
@@ -35,39 +39,40 @@ def search(request):
    
 
     # KEYWORDS
-    if 'keywords' in request.GET:
-        keywords = request.GET['keywords']
-        if keywords:
-            queryset_list = queryset_list.filter(description__icontains=keywords)
+    # if 'keywords' in request.GET:
+    #     keywords = request.GET['keywords']
+    #     if keywords:
+    #         queryset_list = queryset_list.filter(description__icontains=keywords)
 
     # CITY
-    if 'city' in request.GET:
-        city = request.GET['city']
-        if city:
-            queryset_list = queryset_list.filter(city__iexact=city)
+    # if 'city' in request.GET:
+    #     city = request.GET['city']
+    #     if city:
+    #         queryset_list = queryset_list.filter(city__iexact=city)
 
     # STATE
-    # if 'state' in request.GET:
-    #     state = request.GET['state']
-    #     if state:
-    #         queryset_list = queryset_list.filter(state__iexact=state)
+    if 'area' in request.GET:
+        area = request.GET['area']
+        print(area)
+        if area:
+            queryset_list = queryset_list.filter(area__iexact=area)
 
     # BEDROOMS
-    if 'bedrooms' in request.GET:
-        bedrooms = request.GET['bedrooms']
-        if bedrooms:
-            queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
+    # if 'bedrooms' in request.GET:
+    #     bedrooms = request.GET['bedrooms']
+    #     if bedrooms:
+    #         queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
 
     # PRICE
-    if 'price' in request.GET:
-        price = request.GET['price']
-        if price:
-            queryset_list = queryset_list.filter(price__lte=price)
+    if 'developer' in request.GET:
+        developer = request.GET['developer']
+        if developer:
+            queryset_list = queryset_list.filter(developer__iexact=developer)
 
     context = {
         # 'state_choices': state_choices,
-        'bedroom_choices': bedroom_choices,
-        'price_choices': price_choices,
+        'developer_choices': developer_choices,
+        'area_choices': area_choices,
         'listings': queryset_list,
         'values': request.GET
     }
@@ -77,7 +82,7 @@ def search(request):
 def dropdown_menu_form(request):
     if request.method == "POST":
         selected_value = request.POST.get('dropdown_menu_option')
-        print(selected_value)
+        # print(selected_value[])
   #do something
     else :
         template = 'app_name/dropdown_menu_form.html'
@@ -154,7 +159,11 @@ def hottestInTown(request):
 
     context = {
         'listings': paged_listings,
-         "has_drop_down": True
+         "has_drop_down": True,
+         "developer_choices": developer_choices,
+         "area_choices": area_choices,
+        
+        
     }
 
     return render(request, 'listings/listings.html', context)

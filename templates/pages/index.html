@@ -19,7 +19,7 @@
 {% include 'partials/_alerts.html' %}
 
 <!-- Listings -->
-<section id="listings" class="py-5">
+<section id="listings" class="py-3">
   <div class="container">
     <h3 class="text-center mb-3">Latest Listings</h3>
     <div class="row">
@@ -31,17 +31,14 @@
               <a href="{% url 'listing' listing.id %}" >
               <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="" />
               <div class="card-img-overlay">
-                <h2>
-                  <span class="badge badge-secondary text-white">${{ listing.price | intcomma}}</span>
-                </h2>
+                <!-- <h2>
+                  <span class="badge badge-secondary text-white">AED {{ listing.price | intcomma}}</span>
+                </h2> -->
               </div>
               <div class="card-body">
-                <div class="listing-heading text-center">
+                <div class="listing-heading text-center" style="background-color: #c25807;border-radius: 4px">
                   <h4 class="text-primary">{{ listing.title }}</h4>
-                  <p>
-                    <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }},
-                    {{ listing.zipcode }}
-                  </p>
+                 
                 </div>
                 <hr />
                 <div class="row py-2 text-secondary">
@@ -62,6 +59,7 @@
                   <div class="col-6"><i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                 </div>
                 <hr />
+                <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block mediaQuery">View</a>
                 
               </div>
               </a>
@@ -76,7 +74,7 @@
       {% endif %}
 </section>
 
-<section id="" class="py-5 text-white" style="background-color:black;">
+<section id="" class="py-5 text-white" style="background-color:#c25807;">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-4">

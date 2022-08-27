@@ -2,38 +2,42 @@
 {% load humanize %}
 
 {% block content %}
-<div class="container text-center dropdown  my-4 choosing">
+<div class="container text-center dropdown  my-2 choosing">
     <!-- type of housing -->
         <!-- bigger card -->
         
         <div class="card mainCard">
-            <h5 class="card-header">Yes. You Can buy/own building in Dubai. Just in few clicks</h5>
+            <h5 class="card-header"></h5>
             <div class="card-body">
                 
                 <!-- inner cards -->
                 <div class="row">
                    
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 my-1">
                         <a href="{% url 'readyToMoveIn' %}" >
-                      <div class="card customCard">
+                      <div class="card customCard" >
+                        <img class="card-img-top" src="https://i.1.creatium.io/68/0d/24/fdec328c2f1917875ca7d0231f3d64c42f/wasl_1_residences_photos_2.jpg" alt="">
                         <div class="card-body">
                           <h5 class="card-title">Ready To Move In</h5>
-                          <p class="card-text">Studio, flats, apartments, villas, Townhouses in Dubai and whole of UAE. Ready for sale and renting</p>
+                          <p class="card-text">Studio, flats, apartments and villas Ready for sale and renting</p>
                           </div>
                       </div>
+                      <a href="{% url 'readyToMoveIn' %}" class="btn btn-primary btn-block mediaQuery">Get Listings</a>
                         </a>
                     </div>
                     
                     
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 my-1">
                         <a href="{% url 'mortgage' %}">
                       <div class="card customCard">
+                        <img class="card-img-top" src="https://arcdn.bayut.com/area-guides/wp-content/uploads/2022/05/DAMAC-Lagoons-Cover-19-05.jpg" alt="">
                         <div class="card-body">
-                          <h5 class="card-title">Mortgage Plans</h5>
-                          <p class="card-text">Offplan, under construction and launched properties and projects in Dubai. Available for sale</p>
+                          <h5 class="card-title">Payment Plans</h5>
+                          <p class="card-text">Un-believable payment plans from developers.</p>
                           
                         </div>
                       </div>
+                      <a href="{% url 'mortgage' %}" class="btn btn-primary btn-block mediaQuery">Get Listings</a>
                         </a>
                     </div>
                     
@@ -41,44 +45,50 @@
 
                   <!-- second row -->
 
-                  <div class="row my-3">
+                  <div class="row my-1">
                    
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 my-1">
                         <a href="{% url 'handOver' %}" >
-                      <div class="card customCard">
+                      <div class="card customCard" >
+                        <img class="card-img-top" src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Tilal-Al-Ghaf-Cover.jpg" alt="">
                         <div class="card-body">
-                          <h5 class="card-title">HandOver in 12 Months</h5>
-                          <p class="card-text">Studio, flats, apartments, villas, Townhouses in Dubai and whole of UAE. Ready for sale and renting</p>
+                          <h5 class="card-title">Hand Over this year</h5>
+                          <p class="card-text">OffPlan projects that handover is imminent. Hurry and be part of the community</p>
                           </div>
                       </div>
+                      <a href="{% url 'handOver' %}" class="btn btn-primary btn-block mediaQuery">Get Listings</a>
                         </a>
                     </div>
                     
                     
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 my-1">
                         <a href="{% url 'hottestInTown' %}">
                       <div class="card customCard">
+                        <img class="card-img-top" src="https://i0.wp.com/investindxb.com/wp-content/uploads/2022/06/DAMAC-SAFA-2-De-GRISOGONO-investindxb.jpeg?fit=1242%2C690&ssl=1" alt="">
                         <div class="card-body">
                           <h5 class="card-title">Hottest In Town</h5>
-                          <p class="card-text">Ofplan, under construction and launched properties and projects in Dubai. Available for sale</p>
+                          <p class="card-text">Flagged projects by Developers</p>
                           
                         </div>
                       </div>
+                      <a href="{% url 'hottestInTown' %}" class="btn btn-primary btn-block mediaQuery">Get Listings</a>
                         </a>
                     </div>
                     
                   </div>
 
-                  <div class="row my-3 justify-content-center align-items-center">
-                    <div class="col-sm-6 ">
+                  <div class="row ">
+                    <div class="col-sm-12 my-1 ">
                       <a href="{% url 'villasMansions' %}">
-                    <div class="card customCard">
+                    <div class="card customCard" >
+                      <img class="card-img-top" src="https://www.lunariavillas.com/imgs/lunaria.jpg" alt="">
                       <div class="card-body">
-                        <h5 class="card-title">Villas and Mansions</h5>
-                        <p class="card-text">Ofplan, under construction and launched properties and projects in Dubai. Available for sale</p>
+                        <h5 class="card-title">Villas and mansionettes</h5>
+                        <p class="card-text">Best selection of luxury Villas and Mansionettes </p>
                         
                       </div>
                     </div>
+                    <a href="{% url 'villasMansions' %}" class="btn btn-primary btn-block mediaQuery">Get Listings</a>
                       </a>
                   </div>
 

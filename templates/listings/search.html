@@ -13,84 +13,30 @@
                 <!-- Form Row 1 -->
                 <div class="form-row">
                   <div class="col-md-3 mb-3">
-                    <label class="sr-only">Keywords</label>
-                    <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" 
-                    value="{{ values.keywords }}">
-                  </div>
-    
-                  <div class="col-md-3 mb-3">
-                    <label class="sr-only">City</label>
-                    <input type="text" name="city" class="form-control" placeholder="City" value="{{ values.city }}">
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label class="sr-only">Bedrooms</label>
-                    <select name="bedrooms" class="form-control">
-                      <option selected="true" disabled="disabled">Bedrooms (Any)</option>
-                        {% for key,value in bedroom_choices.items %}
-                            <option value="{{ key }}"
-                            {% if key == values.bedrooms %}
-                              selected
-                            {% endif %}
-                            >{{ value }}</option>
-                        {% endfor %}
+                    <label class="sr-only">Area</label>
+                    <select name="area" class="form-control">
+                        <option selected="true" disabled="disabled">Areas (All)</option>
+                      {% for key,value in area_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                      {% endfor %}
                     </select>
                   </div>
                   <div class="col-md-3 mb-3">
-                    <select name="price" class="form-control">
-                      <option selected="true" disabled="disabled">Max Price (All)</option>
-                        {% for key,value in price_choices.items %}
-                            <option value="{{ key }}"
-                            {% if key == values.price %}
-                              selected
-                            {% endif %}
-                            >{{ value }}</option>
-                        {% endfor %}
+                    <select name="developer" class="form-control" id="type">
+                      <option selected="true" disabled="disabled"
+                        >Developers</option
+                      >
+                      {% for key,value in developer_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                      {% endfor %}
                     </select>
                   </div>
-    
-                  <!-- <div class="col-md-4 mb-3">
-                    <label class="sr-only">State</label>
-                    <select name="state" class="form-control">
-                      <option selected="true" disabled="disabled">State (All)</option>
-                        {% for key,value in state_choices.items %}
-                            <option value="{{ key }}" 
-                            {% if key == values.state %}
-                              selected
-                            {% endif %}
-                            >{{ value }}</option>
-                        {% endfor %}
-                    </select>
-                  </div> -->
+                  <div class="col-md-3 mb-3">  <button class="btn btn-primary btn-block mb-3" type="submit">
+                    Search
+                  </button></div>
                 </div>
-                <!-- Form Row 2 -->
-                <!-- <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <label class="sr-only">Bedrooms</label>
-                    <select name="bedrooms" class="form-control">
-                      <option selected="true" disabled="disabled">Bedrooms (Any)</option>
-                        {% for key,value in bedroom_choices.items %}
-                            <option value="{{ key }}"
-                            {% if key == values.bedrooms %}
-                              selected
-                            {% endif %}
-                            >{{ value }}</option>
-                        {% endfor %}
-                    </select>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <select name="price" class="form-control">
-                      <option selected="true" disabled="disabled">Max Price (All)</option>
-                        {% for key,value in price_choices.items %}
-                            <option value="{{ key }}"
-                            {% if key == values.price %}
-                              selected
-                            {% endif %}
-                            >{{ value }}</option>
-                        {% endfor %}
-                    </select>
-                  </div>
-                </div> -->
-                <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+               
+               
               </form>
             </div>
           </div>
@@ -122,32 +68,34 @@
               {% if listings %}
           {% for listing in listings %}
           <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card listing-preview">
+              <div class="card listing-preview customCard">
+                <a href="{% url 'listing' listing.id %}"  >
                 <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
-                <div class="card-img-overlay">
+                <!-- <div class="card-img-overlay">
                   <h2>
-                    <span class="badge badge-secondary text-white">${{ listing.price | intcomma }}</span>
+                    <span class="badge badge-secondary text-white">AED {{ listing.price | intcomma }}</span>
                   </h2>
-                </div>
+                </div> -->
                 <div class="card-body">
-                  <div class="listing-heading text-center">
+                  <div class="listing-heading text-center" style="background-color: #c25807;border-radius: 4px">
                     <h4 class="text-primary">{{ listing.title }}</h4>
-                    <p>
-                      <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode}}</p>
+                 
                   </div>
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-th-large"></i> Sqft: {{ listing.sqft }}</div>
+                      <i class="fas fa-money-bill-alt"></i> From: {{ listing.price }} / ft <sup>2</sup></div>
                     <div class="col-6">
-                      <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
+                      <i class="fas fa-toolbox"></i></i> Developer: {{ listing.developer }}</div>
                   </div>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
+                      <i class="fas fa-map-marker-alt"></i> Area: {{ listing.area }}</div>
                     <div class="col-6">
-                      <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
+                      <i class="fas fa-bookmark"></i>Status: {{ listing.property_status }}</div>
                   </div>
+                 
+                 
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-12">
@@ -158,9 +106,11 @@
                       <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                   </div>
                   <hr>
-                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                
+                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block mediaQuery">View</a>
                 </div>
               </div>
+              </a>
             </div>
           {% endfor %}
         {% else %}
