@@ -9,8 +9,12 @@ class Listing(models.Model):
     # address = models.CharField(max_length=200)
     developer = models.CharField(max_length=200, blank=True)
     area = models.CharField(max_length=100)
-    # state = models.CharField(max_length=100)
-    # zipcode = models.CharField(max_length=20)
+    amenities = models.CharField(max_length=200, null=True)
+    kids_facilities = models.CharField(max_length=200, null=True)
+    sports_facilities = models.CharField(max_length=200, null=True)
+    swimming_pool = models.CharField(max_length=200, null=True)
+    highlights = models.CharField(max_length=200, null=True)
+    furnished = models.CharField(max_length=200, null=True)
     description = models.TextField(blank=True)
     price = models.IntegerField()
     # bedrooms = models.IntegerField()
@@ -45,6 +49,8 @@ class Listing(models.Model):
     photo_10 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     photo_11 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     photo_12 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    
+    
     
     list_date = models.DateTimeField(default=datetime.now, blank=True)
   

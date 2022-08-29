@@ -3,7 +3,11 @@
   font-family: 'Cairo', sans-serif;
 font-family: 'Chakra Petch', sans-serif;
 }
-.mediaQuery{
+
+.callAction{
+  display: none;
+}
+.mediaQuery {
   display: none;
 }
 
@@ -179,7 +183,13 @@ a{
     height: 100%;
     /* object-fit: cover; */
   }
-  .mediaQuery{
+  .realtor{
+    display: none;
+  }
+  .callAction{
+    display: block;
+  }
+  .mediaQuery {
     display: block;
   }
 

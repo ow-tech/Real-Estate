@@ -10,8 +10,7 @@ def index(request):
     context = {
         'listings': listings,
         'area_choices': area_choices,
-        'developer_choices': developer_choices,
-        
+        'developer_choices': developer_choices, 
     }
 
     return render(request, 'pages/index.html', context)

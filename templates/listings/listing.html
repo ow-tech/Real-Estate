@@ -47,41 +47,41 @@
               <!-- Thumbnails -->
               <div class="row mb-5 thumbs">
                 {% if listing.photo_1 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_1.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid">
                   </a>
                 </div>
                 {% endif %}
                 {% if listing.photo_2 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_2.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid">
                   </a>
                 </div>
                 {% endif %}
                 {% if listing.photo_3 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_3.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_3.url }}" alt="" class="img-fluid">
                   </a>
                 </div>
                 {% endif %}
                 {% if listing.photo_4 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_4.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_4.url }}" alt="" class="img-fluid">
                   </a>
                 </div>
                 {% endif %}
                 {% if listing.photo_5 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_5.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_5.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
                 {% if listing.photo_6 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_6.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid">
                   </a>
@@ -89,46 +89,46 @@
                 {% endif %}
 
                 {% if listing.photo_6 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_6.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
 
                 {% if listing.photo_7 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_7.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_7.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
                 {% if listing.photo_8 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_8.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_8.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
                 {% if listing.photo_9 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_9.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_9.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
                 {% if listing.photo_10 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_10.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_10.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
 
                 {% if listing.photo_11 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_11.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_11.url }}" alt="" class="img-fluid">
                   </a>
                 </div>{% endif %}
 
                 {% if listing.photo_12 %}
-                <div class="col-md-2">
+                <div class="col-2">
                   <a href="{{ listing.photo_12.url }}" data-lightbox="home-images">
                     <img src="{{ listing.photo_12.url }}" alt="" class="img-fluid">
                   </a>
@@ -201,14 +201,15 @@
               </div>
     
               <!-- Description -->
-              <div class="row mb-5">
+              <div class="row ">
+                <h3 class="font-weight-bold text-center">Description</h3>
                 <div class="col-md-12">
                     {{ listing.description }}
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="card mb-3">
+            <div class="col-md-3 ">
+              <div class="card mb-3 realtor">
                 <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
                 <div class="card-body">
                   <h5 class="card-title">Property Realtor</h5>
@@ -250,238 +251,51 @@
 
 
         {% endfor %}
-        
-          {% if listing.studio %}
           
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.studio.url }}" data-lightbox="{{listing.studio.url}}">
-                <img src="{{ listing.studio.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>Studio floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-          {% if listing.BR_1 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_1.url }}" data-lightbox="{{listing.BR_1.url}}">
-                <img src="{{ listing.BR_1.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>1 Bed Room floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_2 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_2.url }}" data-lightbox="{{listing.BR_2.url}}">
-                <img src="{{ listing.BR_2.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>2 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_3 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_3.url }}" data-lightbox="{{listing.BR_3.url}}">
-                <img src="{{ listing.BR_3.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>3 Bed Room floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_4 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_4.url }}" data-lightbox="{{listing.BR_4.url}}">
-                <img src="{{ listing.BR_4.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>4 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_5 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_5.url }}" data-lightbox="{{listing.BR_5.url}}">
-                <img src="{{ listing.BR_5.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>5 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_6 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_6.url }}" data-lightbox="{{listing.BR_6.url}}">
-                <img src="{{ listing.BR_6.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>6 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_7 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_7.url }}" data-lightbox="{{listing.BR_7.url}}">
-                <img src="{{ listing.BR_7.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>7 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_8 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_8.url }}" data-lightbox="{{listing.BR_8.url}}">
-                <img src="{{ listing.BR_8.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>8 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-
-          {% if listing.BR_9 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_9.url }}" data-lightbox="{{listing.BR_9.url}}">
-                <img src="{{ listing.BR_9.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>9 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
-          {% if listing.BR_10 %}
-          
-          <tr >
-            
-            <!-- <td>Floor Plan 1 Image</td> -->
-            <div class="row">
-              <td class="col-md-2">
-                <a href="{{ listing.BR_10.url }}" data-lightbox="{{listing.BR_10.url}}">
-                <img src="{{ listing.BR_10.url }}">
-                </a>
-
-              </td>
-            </div>
-            
-            <td>10 Bed Rooms floor Plan</td>
-            <td>Price Start At</td>
-          </a>
-          </tr>
-        
-          {% endif %}
         </tbody>
       </table>
+
+
+      <!-- propety attributes -->
+     <h3 class="text-center font-weight-bold">Project Attributes</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Amenities</th>
+            <th scope="col">High lights</th>
+            <th scope="col">Kids Facility</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>{{listing.amenities}}</td>
+            <td>{{listing.highlights}}</td>
+            <td>{{listing.kids_facilities}}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th scope="col">Sport Facility</th>
+            <th scope="col">Swimming Pool</th>
+            <th scope="col">Furnished</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{listing.sports_facilities}}</td>
+            <td>{{listing.swimming_pool}}</td>
+            <td>{{listing.furnished}}</td>
+          </tr>
+        </tbody>
+        </table>
+          <!-- call to action -->
+          <button class="btn-primary btn-block btn-lg callAction" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
         </div>
+
+        
       </section>
     
       <!-- Inquiry Modal -->
