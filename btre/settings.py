@@ -84,17 +84,19 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env("DB_PASSWORD"),
         'HOST': '127.0.0.1',
-        'OPTIONS': {
-            'read_default_file': '/opt/lampp/etc/my.cnf',
-        }
+        # 'OPTIONS': {
+        #     'read_default_file': '/opt/lampp/etc/my.cnf',
+        # },
+        'PORT': '5432',
+        
     }
 }
 
