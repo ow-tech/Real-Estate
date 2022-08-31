@@ -95,11 +95,11 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get("DB_PASSWORD"),
-        'HOST': '127.0.0.1',
+        'HOST': os.environ.get('DB_HOST'),
         # 'OPTIONS': {
         #     'read_default_file': '/opt/lampp/etc/my.cnf',
         # },
-        'PORT': '5432',
+        'PORT': os.environ.get('DB_PORT'),
         
     }
 }
