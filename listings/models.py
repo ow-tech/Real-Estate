@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
+from cloudinary.models import CloudinaryField
 
 
 class Listing(models.Model):
@@ -36,19 +37,19 @@ class Listing(models.Model):
     is_handOver_in_12_months = models.BooleanField(default=False)
     is_hot = models.BooleanField(default=False)
     is_villas_and_mansionettes = models.BooleanField(default=False)
-    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_7 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_8 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_9 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_10 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_11 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_12 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_main =CloudinaryField('image', blank=True)
+    photo_1 = CloudinaryField('image', blank=True)
+    photo_2 = CloudinaryField('image', blank=True)
+    photo_3 = CloudinaryField('image', blank=True)
+    photo_4 = CloudinaryField('image', blank=True)
+    photo_5 = CloudinaryField('image', blank=True)
+    photo_6 = CloudinaryField('image', blank=True)
+    photo_7 = CloudinaryField('image', blank=True)
+    photo_8 = CloudinaryField('image', blank=True)
+    photo_9 = CloudinaryField('image', blank=True)
+    photo_10 = CloudinaryField('image', blank=True)
+    photo_11 = CloudinaryField('image', blank=True)
+    photo_12 = CloudinaryField('image', blank=True)
     
     
     
@@ -66,7 +67,7 @@ class Floor_Plan(models.Model):
     price_sqft =models.IntegerField(blank=True, null=True)
     from_sqft =models.IntegerField(blank=True, null=True)
     min_price =models.IntegerField(blank=True, null=True)
-    floor_plan_image =models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    floor_plan_image= CloudinaryField('image', blank=True)
     
     
     def __int__(self):

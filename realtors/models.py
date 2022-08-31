@@ -1,10 +1,11 @@
 from django.db import models
 from datetime import datetime
+from cloudinary.models import CloudinaryField
 
 
 class Realtor(models.Model):
     name = models.CharField(max_length=200)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d')
+    photo = CloudinaryField('image', blank=True)
     description = models.TextField(blank=True)
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
