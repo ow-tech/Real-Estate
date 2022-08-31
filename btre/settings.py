@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-# import os
-# import environ
+import os
+import environ
 import cloudinary
-import django_heroku
+# import django_heroku
 
 
 # Initialise environment variables
@@ -179,5 +179,5 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 
 # os.environ.geture Django App for Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
