@@ -182,5 +182,5 @@ EMAIL_USE_TLS = False
 
 # os.environ.geture Django App for Heroku.
 # django_heroku.settings(locals())
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
