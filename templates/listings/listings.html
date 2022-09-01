@@ -86,7 +86,7 @@
               
                   <div class="card listing-preview customCard">
                     <a href="{% url 'listing' listing.id %}"  >
-                    <img class="card-img-top" src="{{% static 'listing.photo_main.url' %}}" alt="">
+                    <img class="card-img-top" src="{{ 'listing.photo_main.url' }}" alt="">
                     <!-- <div class="card-img-overlay">
                       <h2>
                         <span class="badge badge-secondary text-white">AED {{ listing.price | intcomma }}</span>
