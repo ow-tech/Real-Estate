@@ -61,15 +61,13 @@ class Listing(models.Model):
     photo_11 = CloudinaryField('image', blank=True)
     photo_12 = CloudinaryField('image', blank=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
-  
     
-
     def __str__(self):
         return self.title
     
 class Floor_Plan(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    bedrooms =models.IntegerField(blank=True, null=True)
+    bedrooms =models.CharField(blank=True, null=True)
     is_studio = models.BooleanField(default=False)
     price_sqft =models.IntegerField(blank=True, null=True)
     from_sqft =models.IntegerField(blank=True, null=True)
