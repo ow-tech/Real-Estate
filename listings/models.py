@@ -6,17 +6,17 @@ from cloudinary.models import CloudinaryField
 
 
 class Developer(models.Model):
-    developer = models.CharField(max_length=200, blank=True)
+    developer = models.CharField(max_length=200, blank=True, unique=True)
     def __str__(self):
         return self.developer
 class Area(models.Model):
-    area = models.CharField(max_length=200, blank=True)
+    area = models.CharField(max_length=200, blank=True, unique=True)
     def __str__(self):
         return self.area
     
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     # address = models.CharField(max_length=200)
     developer = models.ForeignKey(Developer, on_delete=models.DO_NOTHING)
     area = models.ForeignKey(Area, on_delete=models.DO_NOTHING)
