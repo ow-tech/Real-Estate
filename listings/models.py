@@ -4,12 +4,22 @@ from realtors.models import Realtor
 from cloudinary.models import CloudinaryField
 
 
+
+class Developer(models.Model):
+    developer = models.CharField(max_length=200, blank=True)
+    def __str__(self):
+        return self.developer
+class Area(models.Model):
+    area = models.CharField(max_length=200, blank=True)
+    def __str__(self):
+        return self.area
+    
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     # address = models.CharField(max_length=200)
-    developer = models.CharField(max_length=200, blank=True)
-    area = models.CharField(max_length=100)
+    developer = models.ForeignKey(Developer, on_delete=models.DO_NOTHING)
+    area = models.ForeignKey(Area, on_delete=models.DO_NOTHING)
     amenities = models.CharField(max_length=200, null=True)
     kids_facilities = models.CharField(max_length=200, null=True)
     sports_facilities = models.CharField(max_length=200, null=True)
@@ -50,9 +60,6 @@ class Listing(models.Model):
     photo_10 = CloudinaryField('image', blank=True)
     photo_11 = CloudinaryField('image', blank=True)
     photo_12 = CloudinaryField('image', blank=True)
-    
-    
-    
     list_date = models.DateTimeField(default=datetime.now, blank=True)
   
     

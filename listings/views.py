@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import area_choices, developer_choices
 
-from .models import Listing, Floor_Plan
+from .models import Developer, Listing, Floor_Plan, Area
 
 
 def index(request):
@@ -36,6 +36,8 @@ def listing(request, listing_id):
 
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
+    queryset_area =Area.objects.order_by('area')
+    queryset_developer =Developer.objects.order_by('developer')
    
 
     # KEYWORDS
@@ -55,7 +57,7 @@ def search(request):
         area = request.GET['area']
         print(area)
         if area:
-            queryset_list = queryset_list.filter(area__iexact=area)
+            queryset_list = queryset_list.filter(area__area=area)
 
     # BEDROOMS
     # if 'bedrooms' in request.GET:
@@ -67,12 +69,12 @@ def search(request):
     if 'developer' in request.GET:
         developer = request.GET['developer']
         if developer:
-            queryset_list = queryset_list.filter(developer__iexact=developer)
+            queryset_list = queryset_list.filter(developer__developer=developer)
 
     context = {
         # 'state_choices': state_choices,
-        'developer_choices': developer_choices,
-        'area_choices': area_choices,
+        'developer_choices': queryset_developer,
+        'area_choices': queryset_area,
         'listings': queryset_list,
         'values': request.GET
     }
@@ -154,14 +156,19 @@ def hottestInTown(request):
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
+    queryset_area =Area.objects.order_by('area')
+    queryset_developer =Developer.objects.order_by('developer')
+    
+    print(queryset_area, queryset_developer)
+    print(listings)
     
     
 
     context = {
         'listings': paged_listings,
          "has_drop_down": True,
-         "developer_choices": developer_choices,
-         "area_choices": area_choices,
+         "developer_choices":queryset_developer ,
+         "area_choices": queryset_area,
         
         
     }

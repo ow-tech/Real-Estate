@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 
-{% load static %}
+<!-- {% load static %} -->
 
 {% load humanize %}
 
@@ -50,8 +50,8 @@
                     <label class="sr-only">Area</label>
                     <select name="area" class="form-control">
                         <option selected="true" disabled="disabled">Areas (All)</option>
-                      {% for key,value in area_choices.items %}
-                      <option value="{{ key }}">{{ value }}</option>
+                      {% for area in area_choices %}
+                      <option value="{{ area.area }}">{{ area.area }}</option>
                       {% endfor %}
                     </select>
                   </div>
@@ -60,8 +60,8 @@
                       <option selected="true" disabled="disabled"
                         >Developers</option
                       >
-                      {% for key,value in developer_choices.items %}
-                      <option value="{{ key }}">{{ value }}</option>
+                      {% for developer in developer_choices %}
+                      <option value="{{ developer.developer }}">{{ developer.developer}}</option>
                       {% endfor %}
                     </select>
                   </div>
