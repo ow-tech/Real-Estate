@@ -67,7 +67,7 @@ class Listing(models.Model):
     
 class Floor_Plan(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    bedrooms =models.CharField(blank=True, null=True)
+    bedrooms =models.CharField(blank=True, null=True, max_length=200)
     is_studio = models.BooleanField(default=False)
     price_sqft =models.IntegerField(blank=True, null=True)
     from_sqft =models.IntegerField(blank=True, null=True)
