@@ -69,9 +69,9 @@ class Floor_Plan(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     bedrooms =models.CharField(blank=True, null=True, max_length=200)
     is_studio = models.BooleanField(default=False)
-    price_sqft =models.IntegerField(blank=True, null=True)
-    from_sqft =models.IntegerField(blank=True, null=True)
-    min_price =models.IntegerField(blank=True, null=True)
+    price_sqft =models.CharField(blank=True, null=True, max_length=200)
+    from_sqft =models.CharField(blank=True, null=True, max_length=200)
+    min_price =models.CharField(blank=True, null=True, max_length=200)
     floor_plan_image= CloudinaryField('image', blank=True)
     
     
